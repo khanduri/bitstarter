@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>My First Bitstarter</title>
 
@@ -12,11 +12,58 @@
 
     <link href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css" rel="stylesheet">
 
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css">
   </head>
     <style type="text/css">
-    </style>
+      /* Large desktop */
+      @media (min-width: 980px) {
+        body {
+         padding-top: 60px;
+        }
+       .linediv-l {
+         border-right: 1px black solid;
+        }
+       .linediv-r {
+         border-left: 1px black solid;
+       }
+      }
+
+      /* Landscape phones and down */
+      @media (max-width: 480px) {
+       .linediv-l {
+         border-bottom: 1px black solid;
+       }
+       .linediv-r {
+         border-top: 1px black solid;
+       }
+      }
+
+      body{
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      /* Video pitch and Action */
+      .video, .thermometer, .order, .social, .statistics {
+        text-align: center;
+      }
+      .order, .social .btn {
+        margin: 2.5% 0%;
+      }
+
+      /* Text */
+      .text {
+        font-family: Tahoma, Geneva, sans-serif;
+        padding: 2.5% 0%;
+        text-align: justify;
+      }
+      .footer{
+        color: #cccccc;
+        font-size: 11px;
+        text-align: center;
+      }
+      .footer a{
+        color: #aaaaaa;
+      }
+   </style>
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -41,74 +88,181 @@
 
 
 
-
-
     <div class="container">
 
-      <div class="row navigation">
-        <div class="span2 logo">
-          Logo
-        </div>
-        <div class="span6 blank">
-          Blank
-        </div>
-        <div class="span4 about">
-          About
-        </div>
-      </div>
+      <div class="hero-unit">
 
-      <div class="row heading">
-        <div class="span12">
-          <h1>Bitstarter Title</h1>
-        </div>
-      </div>
-
-      <div class="row subheading">
-        <div class="span12">
-          <p class="lead">This is my first bitstarter project.</p>
-        </div>
-      </div>
-
-      <div class="row pitch">
-        <div class="span6 video">
-          Video
-        </div>
-        <div class="span6">
-          <div class="thermometer">
-            Thermometer
+        <div class="row-fluid">
+          <div class="span5 text">
+            <h2>Product</h2>
+            <p>
+              One Sentence Description
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
+            </p>
+            <p>
+              <a href="#" class="btn btn-primary btn-large">
+                Learn more &raquo;
+              </a>
+            </p>
           </div>
-          <div class="order">
-            Order
+
+          <div class="span7">
+            <div class="span8 offset2">
+            <div class="statistics">
+              <div class="span4">
+                <div class="linediv-l">
+                <h4>1000</h4> <p>backers</p>
+                </div>
+              </div>
+              <div class="span4">
+                <div class="linediv-c">
+                  <h4>$6000</h4> <p>of $10,000</p>
+                </div>
+              </div>
+              <div class="span4">
+                <div class="linediv-r">
+                <h4>10</h4> <p>days left</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="social">
-            Social
+          <div class="span10 offset1">
+            <div class="thermometer progress active">
+              <div class="bar bar-success" style="width: 60%;"></div>
+              <div class="bar bar-warning" style="width: 40%;"></div>
+            </div>
+          </div>
+          <div class="span6 offset3 order">
+            <button class="btn btn-success btn-large">Preorder</button>
+          </div>
+          <div class="span8 offset2 social">
+            <button class="btn btn-twitter">
+              <i class="icon-twitter"></i> | Twitter
+            </button>
+            <button class="btn btn-facebook">
+              <i class="icon-facebook"></i> | Facebook
+            </button>
+          </div>
           </div>
         </div>
+
       </div>
 
-      <div class="row section1">
-        <div class="span12">
-          Marketing Section 1
+
+
+      <div class="row-fluid">
+        <div class="span5 offset1">
+          <img class="img-polaroid" src="http://placehold.it/480x300">
+        </div>
+        <div class="span5 text">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
+            mollis justo velit at nunc. Fusce nec egestas sem. Donec
+            fringilla ante lectus, a pellentesque lacus dignissim ac. Sed
+            volutpat lorem ut congue malesuada. In facilisis scelerisque
+            turpis sed lacinia. Donec in orci lectus. Donec auctor semper
+            quam, eget rhoncus purus fringilla id. Phasellus id nibh eu
+            risus ultrices adipiscing.  Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Donec porta, dui sagittis hendrerit
+            rutrum, nunc leo tempus nisl, eu mollis justo velit at
+            nunc. Fusce nec egestas sem. Donec fringilla.
+          </p>
         </div>
       </div>
 
-      <div class="row section2">
-        <div class="span12">
-          Marketing Section 2
+      <div class="row-fluid">
+        <div class="span5 offset1 text">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
+            mollis justo velit at nunc. Fusce nec egestas sem. Donec
+            fringilla ante lectus, a pellentesque lacus dignissim ac. Sed
+            volutpat lorem ut congue malesuada. In facilisis scelerisque
+            turpis sed lacinia. Donec in orci lectus. Donec auctor semper
+            quam, eget rhoncus purus fringilla id. Phasellus id nibh eu
+            risus ultrices adipiscing.  Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Donec porta, dui sagittis hendrerit
+            rutrum, nunc leo tempus nisl, eu mollis justo velit at
+            nunc. Fusce nec egestas sem. Donec fringilla.
+          </p>
+        </div>
+        <div class="span5">
+          <img class="img-polaroid" src="http://placehold.it/480x300">
         </div>
       </div>
 
-      <div class="row faq">
-        <div class="span12">
-          FAQ
+      <div class="row-fluid">
+        <div class="span10 offset1 text">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
+            mollis justo velit at nunc. Fusce nec egestas sem. Donec
+            fringilla ante lectus, a pellentesque lacus dignissim ac. Sed
+            volutpat lorem ut congue malesuada. In facilisis scelerisque
+            turpis sed lacinia. Donec in orci lectus. Donec auctor semper
+            quam, eget rhoncus purus fringilla id. Phasellus id nibh eu
+            risus ultrices adipiscing.  Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Donec porta, dui sagittis hendrerit
+            rutrum, nunc leo tempus nisl, eu mollis justo velit at
+            nunc. Fusce nec egestas sem. Donec fringilla.
+          </p>
         </div>
       </div>
 
-      <div class="row footer">
+
+
+      <div class="row-fluid">
+          <div class="span10 offset1">
+            <h3>FAQ</h3>
+            <div class="accordion" id="accordion2">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseOne">
+                    What does FAQ stand for?
+                  </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    Frequently Asked Question.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseTwo">
+                    What's a Frequently Asked Question?
+                  </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    A question which is commonly asked by users.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+      <!-- http://creativecommons.org/licenses/ -->
+      <div class="row-fluid footer">
         <div class="span12">
-          Footer
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
+          </a>
+          <br />
+          This work is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+            Creative Commons Attribution-ShareAlike 3.0 Unported License
+          </a>.
         </div>
       </div>
+
     </div>
 
     <!-- Placed at the end of the document so the pages load faster -->
