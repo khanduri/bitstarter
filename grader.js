@@ -3,60 +3,76 @@
 var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
-var HTMLFILE_DEF = 'index.html';
-var CHECKSFILE_DEF = 'checks.json';
+var rest = require('restler');
+var HTML_DEF = 'index.html';
+var CHECKS_DEF = 'checks.json';
 
 var assertFileExists = function(inFile){
     var inStr = inFile.toString();
+    /*jslint node: true, stupid: true */
     if(!fs.existsSync(inStr)){
         console.log('%s does not exist. Exiting!', inStr);
         // http://nodejs.org/api/process.html#process_process_exit_code
         process.exit(1);
     }
     return inStr;
-}
-
-var cheerioHtmlFile = function(htmlFile){
-    return cheerio.load(fs.readFileSync(htmlFile));
-}
+};
 
 var loadChecks = function(checksFile){
+    /*jslint node: true, stupid: true */
     return JSON.parse(fs.readFileSync(checksFile));
-}
+};
 
 var checkHtmlFile = function(htmlFile, checksFile){
-    $ = cheerioHtmlFile(htmlFile);
+    $ = cheerio.load(htmlFile);
     var checks = loadChecks(checksFile).sort();
     var out = {};
-    for (var ii in checks){
+    var ii = null;
+    for (ii in checks){
         var present = $(checks[ii]).length > 0;
         out[checks[ii]] = present;
     }
     return out;
-}
+};
 
 var clone = function(fn){
     // Workaround for commander.js issue.
     // http://stackoverflow.com/a/6772648
     return fn.bind({});
-}
+};
 
-if(require.main == module){
-    program
-        .option(
-            '-c, --checks <check_file>', 
-            'Path to checks.json', 
-            clone(assertFileExists), 
-            CHECKSFILE_DEF)
-        .option(
-            '-f, --file <html_file>', 
-            'Path to index.html', 
-            clone(assertFileExists), 
-            HTMLFILE_DEF)
-        .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
+function checkHtml(err, html){
+    if (err){
+        console.log('Error : ' + err);
+        process.exit(1);
+    }
+    var checkJson = checkHtmlFile(html, program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
+}
+
+if(require.main === module){
+
+    program
+        .option('-c, --checks <check_file>',
+                'Check path',
+                clone(assertFileExists),
+                CHECKS_DEF)
+        .option('-f, --file <html_file>',
+                'File path',
+                clone(assertFileExists),
+                HTML_DEF)
+        .option('-u, --url <url_pointer>', 'Url link that needs to be graded')
+        .parse(process.argv);
+
+    if (program.url){
+        rest.get(program.url)
+            .on('complete', function(result){
+                checkHtml((result instanceof Error), result);
+            });
+    } else {
+        fs.readFile(program.file, checkHtml);
+    }
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
